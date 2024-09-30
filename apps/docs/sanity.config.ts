@@ -9,12 +9,20 @@ import {createPageTreeDocumentList} from '@q42/sanity-plugin-page-tree'
 const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 const singletonTypes = new Set(['settings'])
 
+if (!process.env.SANITY_PROJECT_ID) {
+  throw new Error('CMS environment variables not set: SANITY_PROJECT_ID')
+}
+
+if (!process.env.SANITY_DATA_SET) {
+  throw new Error('CMS environment variables not set: SANITY_PROJECT_ID')
+}
+
 export default defineConfig({
   name: 'default',
   title: 'Sakura Living',
 
-  projectId: 'js8q83qh',
-  dataset: 'production',
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATA_SET,
   schema: {
     types: schemaTypes,
     templates: (templates) => templates.filter(({schemaType}) => !singletonTypes.has(schemaType)),
