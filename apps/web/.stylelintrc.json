@@ -1,0 +1,31 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "order/properties-alphabetical-order": null,
+    "scss/dollar-variable-pattern": null,
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
+    "function-parentheses-space-inside": "never-single-line",
+    "length-zero-no-unit": null,
+    "color-hex-length": null,
+    "block-closing-brace-empty-line-before": "never",
+    "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-before": "always",
+    "no-eol-whitespace": true,
+    "max-empty-lines": [1, { "ignore": "comments" }],
+    "max-nesting-depth": null,
+    "color-named": null,
+    "declaration-property-value-disallowed-list": null,
+    "selector-max-compound-selectors": null,
+    "selector-max-id": null,
+    "shorthand-property-no-redundant-values": null,
+    "order/order": null
+  },
+  "ignoreFiles": [
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "__tests__/**/*.css"
+  ]
+}

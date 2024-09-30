@@ -1,18 +1,110 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "_atoms": [
+        "components/atoms/"
+      ],
+      "_atoms/*": [
+        "components/atoms/*"
+      ],
+      "_molecules": [
+        "components/molecules/"
+      ],
+      "_molecules/*": [
+        "components/molecules/*"
+      ],
+      "_organisms ": [
+        "components/organisms/"
+      ],
+      "_organisms/*": [
+        "components/organisms/*"
+      ],
+      "_context ": [
+        "context/"
+      ],
+      "_context/*": [
+        "context/*"
+      ],
+      "_hoc/*": [
+        "components/hoc/*"
+      ],
+      "_svgs/*": [
+        "components/svgs/*"
+      ],
+      "_textures": [
+        "components/textures/"
+      ],
+      "_textures/*": [
+        "components/textures/*"
+      ],
+      "_types": [
+        "types/"
+      ],
+      "_types/*": [
+        "types/*"
+      ],
+      "_lib": [
+        "lib/"
+      ],
+      "_lib/*": [
+        "lib/*"
+      ],
+      "_public": [
+        "public/"
+      ],
+      "_public/*": [
+        "public/*"
+      ],
+      "_utils": [
+        "utils/"
+      ],
+      "_utils/*": [
+        "utils/*"
+      ],
+      "_hooks": [
+        "hooks/"
+      ],
+      "_hooks/*": [
+        "hooks/*"
+      ],
+      "_groq": [
+        "graphql/"
+      ],
+      "_groq/*": [
+        "graphql/*"
+      ]
+    },
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "next-env.d.ts",
-    "next.config.mjs",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
