@@ -1,0 +1,187 @@
+@use 'sass:list';
+
+@mixin font-size(
+	$fs-map,
+	$font-family: $global-font-family,
+	$font-weight: null
+) {
+	font-family: $font-family;
+
+	@if map-has-key($fs-map, $font-family) {
+		$font-family: map-get($fs-map, $font-family);
+		@include make-font-family($font-family, $font-weight);
+	} @else {
+		@include make-font-family($fs-map, $font-weight);
+	}
+}
+
+@mixin make-font-family($fs-map, $font-weight) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint ==null {
+			@include make-font-size($fs-font-size, $font-weight);
+		} @else {
+			// If $fs-font-size is a key that exists in
+			// $fs-breakpoints, use the value
+			@if map-has-key($breakpoints, $fs-breakpoint) {
+				$fs-breakpoint: map-get($breakpoints, $fs-breakpoint);
+			}
+
+			@media screen and (min-width: $fs-breakpoint) {
+				@include make-font-size($fs-font-size, $font-weight);
+			}
+		}
+	}
+}
+
+@mixin make-font-size($fs-font-size, $font-weight) {
+	// If $fs-font-size is a list, include
+	// both font-size and line-height
+	@if type-of($fs-font-size) == 'list' {
+		// Font size
+		font-size: rem(nth($fs-font-size, 1));
+
+		// Line height
+		@if (length($fs-font-size) > 1) {
+			line-height: rem(nth($fs-font-size, 2));
+		}
+
+		// Letter spacing
+		@if (length($fs-font-size) > 2) {
+			$letter-spacing: nth($fs-font-size, 3);
+
+			@if type-of($letter-spacing) == 'number' {
+				letter-spacing: rem($letter-spacing);
+			} @else {
+				letter-spacing: $letter-spacing;
+			}
+		}
+
+		// Text transform
+		@if (length($fs-font-size) > 3) {
+			text-transform: nth($fs-font-size, 4);
+		}
+
+		// Font weight
+		@if $font-weight !=null {
+			font-weight: $font-weight;
+		} @else if (length($fs-font-size) > 4) {
+			font-weight: nth($fs-font-size, 5);
+		}
+	} @else {
+		font-size: rem($fs-font-size);
+	}
+}
+
+// Media queries
+
+@mixin media-breakpoint-up($name, $breakpoints: $breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin media-breakpoint-down($name, $breakpoints: $breakpoints) {
+	$max: breakpoint-max($name, $breakpoints);
+
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+@mixin media-breakpoint-between(
+	$minName,
+	$maxName,
+	$breakpoints: $breakpoints
+) {
+	$min: breakpoint-min($minName, $breakpoints);
+	$max: breakpoint-min($maxName, $breakpoints);
+
+	@if $min and $max {
+		@media (min-width: $min) and (max-width: calc($max - 1px)) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+// Grid mixins
+
+@mixin container-max-width() {
+	align-self: center;
+	max-width: 1440px;
+	width: 100%;
+}
+
+@mixin site-grid($small: true, $cols: 12) {
+	grid-template-columns: repeat($cols, [col-start] 1fr);
+	column-gap: $grid-gutter-sm;
+	row-gap: $grid-gutter-sm;
+	align-self: center;
+	display: grid;
+	padding: $spacing-x10 $grid-padding-sm $spacing-x17;
+
+	@include media-breakpoint-up(lg) {
+		column-gap: $grid-gutter-lg;
+		padding: $spacing-x20 $grid-padding-lg $spacing-x27;
+	}
+}
+
+// Other mixins
+
+@mixin animate($name, $duration, $ease, $fill-mode: forwards, $iteration: 1) {
+	animation-timing-function: $ease;
+	animation-fill-mode: $fill-mode;
+	animation-iteration-count: $iteration;
+	animation-name: $name;
+	animation-duration: $duration;
+}
+
+@mixin transition($properties, $duration, $ease: ease-in-out) {
+	transition-property: unquote($properties);
+	transition-duration: $duration;
+	transition-timing-function: $ease;
+}
+
+@mixin flex($direction: column, $justify: center, $align: center) {
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+	display: flex;
+}
+
+@mixin hideOnMobile {
+	@include media-breakpoint-down(md) {
+		&[data-hide-on-mobile='true'] {
+			display: none;
+		}
+	}
+}
+
+@mixin pseudo(
+	$width,
+	$height,
+	$position: absolute,
+	$top: 0,
+	$left: 0,
+	$zIndex: 0
+) {
+	position: $position;
+	display: block;
+	width: $width;
+	height: $height;
+	content: '';
+	z-index: $zIndex;
+	left: $left;
+	top: $top;
+}

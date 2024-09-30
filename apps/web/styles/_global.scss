@@ -1,0 +1,21 @@
+.button-reset {
+	appearance: none !important;
+	user-select: none;
+	box-shadow: none;
+	background: 0;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.componentLayout {
+	margin: -$spacing-x5 auto 0 auto;
+}
+
+.componentLayoutInner {
+	@include container-max-width;
+	@include site-grid;
+	margin: auto;
+	width: 100%;
+}

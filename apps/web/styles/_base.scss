@@ -1,0 +1,63 @@
+html {
+	height: 100%;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-weight: 400;
+	font-family: $global-font-family;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	font-size: 16px;
+	display: block;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+body {
+	position: relative;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+main {
+	position: relative;
+}
+
+h1 {
+	@include font-size($heading-h1, $heading-font-family);
+}
+
+h2 {
+	@include font-size($heading-h2, $heading-font-family);
+}
+
+h3 {
+	@include font-size($heading-h3, $heading-font-family);
+}
+
+h4 {
+	@include font-size($heading-h4, $heading-font-family);
+}
+
+h5 {
+	@include font-size($heading-h5, $heading-font-family);
+}
+
+p {
+	@include font-size($body-md, $global-font-family);
+}
+
+span {
+	@include font-size($body-sm, $global-font-family);
+}

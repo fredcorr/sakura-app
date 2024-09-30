@@ -1,0 +1,203 @@
+$global-font-family: 'Arial';
+
+$base-font-size: 16px;
+$base-letter-spacing: normal;
+$base-text-transform: none;
+
+$heading-font-family: 'Arial';
+
+$heading-h1: (
+	null: (
+		40px,
+		44px,
+		$base-letter-spacing,
+		$base-text-transform,
+		700,
+	),
+	lg: (
+		68px,
+		74.8px,
+		$base-letter-spacing,
+		$base-text-transform,
+		700,
+	),
+);
+
+$heading-h2: (
+	null: (
+		32px,
+		35.2px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+	lg: (
+		56px,
+		61.6px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+);
+
+$heading-h3: (
+	null: (
+		28px,
+		30.8px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+	lg: (
+		40px,
+		44px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+);
+
+$heading-h4: (
+	null: (
+		24px,
+		26.4px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+	lg: (
+		32px,
+		35.2px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+);
+
+$heading-h5: (
+	null: (
+		22px,
+		24.2px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+	lg: (
+		24px,
+		26.4px,
+		$base-letter-spacing,
+		$base-text-transform,
+		500,
+	),
+);
+
+$heading-h6: (
+	null: (
+		20px,
+		22px,
+		$base-letter-spacing,
+		$base-text-transform,
+		400,
+	),
+	lg: (
+		22px,
+		24.2px,
+		$base-letter-spacing,
+		$base-text-transform,
+		400,
+	),
+);
+
+$body-xl: (
+	null: (
+		18px,
+		27px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+	lg: (
+		20px,
+		30px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+);
+
+$body-lg: (
+	null: (
+		16px,
+		24px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+	lg: (
+		18px,
+		27px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+);
+
+$body-md: (
+	null: (
+		14px,
+		21px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+	lg: (
+		16px,
+		24px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+);
+
+$body-sm: (
+	null: (
+		12px,
+		18px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+	lg: (
+		14px,
+		21px,
+		$base-letter-spacing,
+		$base-text-transform,
+	),
+);
+
+$overline-lg: (
+	null: (
+		14px,
+		21px,
+		2px,
+		uppercase,
+		600,
+	),
+	lg: (
+		16px,
+		24px,
+		2px,
+		uppercase,
+		600,
+	),
+);
+
+$overline-sm: (
+	null: (
+		12px,
+		18px,
+		2px,
+		uppercase,
+		600,
+	),
+	lg: (
+		14px,
+		21px,
+		2px,
+		uppercase,
+		600,
+	),
+);
