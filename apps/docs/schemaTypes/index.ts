@@ -1,5 +1,6 @@
 import siteSettings from './site-settings'
-import content from './content'
 import homepage from './homepage'
+import product from './prodcuts'
+import page from './page'
 
-export const schemaTypes = [siteSettings, homepage, content]
+export const schemaTypes = [siteSettings, homepage, page, product]

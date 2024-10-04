@@ -1,8 +1,8 @@
 import pageBase from '../nodes/compositions/page-base'
 
 export default {
-  name: 'Content',
-  title: 'content',
+  name: 'product',
+  title: 'Product',
   type: 'document',
   fields: [...pageBase],
 }
