@@ -1,10 +1,10 @@
-$global-font-family: 'Arial';
+$global-font-family: var(--WorkSans);
 
 $base-font-size: 16px;
 $base-letter-spacing: normal;
 $base-text-transform: none;
 
-$heading-font-family: 'Arial';
+$heading-font-family: var(--SpaceGrotesk);
 
 $heading-h1: (
 	null: (
