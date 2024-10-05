@@ -1,17 +1,22 @@
 {
   "name": "sakura-app",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "start": "turbo start",
     "deploy": "turbo deploy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^7.32.0",
     "prettier": "^3.2.5",
     "sass": "^1.70.0",
     "turbo": "^2.1.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.1.6"
   },
   "engines": {
     "node": ">=18"

@@ -1,5 +1,5 @@
 import { PageTypeName } from '_types/cms/base'
-import { HomepageQuery } from 'groq/pages/homepage'
+import { HomepageQuery } from '_groq/pages/homepage'
 
 export const getPageQuery = (type: PageTypeName) => {
 	switch (type) {
