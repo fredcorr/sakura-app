@@ -1,4 +1,6 @@
 import { Space_Grotesk, Work_Sans } from 'next/font/google'
+import Navigation from '_organisms/Navigation/Navigation'
+import Footer from '_organisms/Footer/Footer'
 import '../styles/main.scss'
 
 const SpaceGrotesk = Space_Grotesk({
@@ -23,7 +25,10 @@ export default function Layout({
 			lang="en"
 			className={`${SpaceGrotesk.variable}, ${WorkSans.variable}`}
 		>
-			<body>{children}</body>
+			<body>
+				<Navigation></Navigation>
+				<main>{children}</main>
+			</body>
 		</html>
 	)
 }

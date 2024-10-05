@@ -3,9 +3,15 @@
   "ui": "tui",
   "globalEnv": [
     "SANITY_STUDIO_DATA_SET",
-    "SANITY_STUDIO_PROJECT_ID"
+    "SANITY_STUDIO_PROJECT_ID",
+    "SANITY_STUDIO_TOKEN"
   ],
   "tasks": {
+    "deploy": {
+      "dependsOn": [
+        "^deploy"
+      ]
+    },
     "build": {
       "dependsOn": [
         "^build"

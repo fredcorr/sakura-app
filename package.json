@@ -4,12 +4,12 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
+    "deploy": "turbo deploy",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "prettier": "^3.2.5",
-    "sass": "^1.79.4",
+    "sass": "^1.70.0",
     "turbo": "^2.1.2",
     "typescript": "^5.4.5"
   },
@@ -20,5 +20,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@sanity/client": "^6.22.1"
+  }
 }
