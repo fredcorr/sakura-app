@@ -1,4 +1,6 @@
 import { Homepage } from './pages/homepage'
+import { Page } from './pages/page'
+import { Product } from './pages/product'
 
 export enum PageTypeName {
 	HOMEPAGE = 'homepage',
@@ -18,4 +20,4 @@ export interface PageBase {
 	slug: Slug
 }
 
-export type CmsPage = Homepage
+export type CmsPage = Homepage | Product | Page

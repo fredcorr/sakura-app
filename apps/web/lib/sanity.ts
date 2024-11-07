@@ -36,6 +36,8 @@ export const getSinglePage: GetSinglePage = async (slug, preview) => {
 		},
 	)
 
+	if (!data) return false
+
 	const page = await client.fetch(
 		`*[_id == $id && _type == $type]{ ${getPageQuery(data._type)}}[0]`,
 		{
