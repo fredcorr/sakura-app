@@ -1,9 +1,16 @@
 import { createClient } from '@sanity/client'
-import { CmsPage } from '_types/cms/base'
-import { GetAllPages, GetSinglePage } from '_types/local/sanity'
+import { CmsPage, GlobalItem, GlobalItemTypeName } from '_types/cms/base'
+import {
+	GetAllGlobalData,
+	GetAllPages,
+	GetGlobalItem,
+	GetSinglePage,
+} from '_types/local/sanity'
 import { allPages } from '_groq/functions/all-pages'
 import { getPageQuery } from '_groq/functions/get-page-query'
-import { navigation } from '_groq/global/navigation'
+import { getGlobalItemQuery } from '_groq/functions/get-global-item'
+import snakeCase from 'lodash/snakeCase'
+import { GlobalData } from '_types/cms/global'
 
 if (!process.env.SANITY_STUDIO_PROJECT_ID) {
 	throw new Error('CMS environment variables not set: SANITY_PROJECT_ID')
@@ -55,8 +62,23 @@ export const getAllPages: GetAllPages = async () => {
 	return posts.map(page => page.slug.current)
 }
 
-export const getNavigation = async () => {
-	const nav = await client.fetch(navigation)
+export const getAllGlobalData: GetAllGlobalData = async () => {
+	const globalDataPromise = Object.values(GlobalItemTypeName).map(
+		async name => [snakeCase(name), await getGlobalItem(name)] as const,
+	)
 
-	return {}
+	const globalDataEntries = await Promise.all(globalDataPromise)
+
+	return Object.fromEntries(globalDataEntries) as GlobalData
+}
+
+export const getGlobalItem: GetGlobalItem = async _type => {
+	const item = await client.fetch<GlobalItem>(
+		`*[_type == $type]{ ${getGlobalItemQuery(_type)}}[0]`,
+		{
+			type: _type,
+		},
+	)
+
+	return item
 }

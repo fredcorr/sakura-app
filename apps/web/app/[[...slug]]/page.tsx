@@ -16,3 +16,11 @@ export default async function Page({ params: { slug } }: RouteParams) {
 export async function generateStaticParams() {
 	return await getAllPages()
 }
+
+export async function generateMetadata({ params: { slug } }: RouteParams) {
+	const route = await getSinglePage(slug)
+
+	return {
+		title: route.page_title,
+	}
+}
