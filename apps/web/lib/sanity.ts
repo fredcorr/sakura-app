@@ -3,6 +3,7 @@ import { CmsPage } from '_types/cms/base'
 import { GetAllPages, GetSinglePage } from '_types/local/sanity'
 import { allPages } from '_groq/functions/all-pages'
 import { getPageQuery } from '_groq/functions/get-page-query'
+import { navigation } from '_groq/global/navigation'
 
 if (!process.env.SANITY_STUDIO_PROJECT_ID) {
 	throw new Error('CMS environment variables not set: SANITY_PROJECT_ID')
@@ -27,7 +28,8 @@ export const client = createClient({
 
 export const getSinglePage: GetSinglePage = async (slug, preview) => {
 	const parsedSlug = !!slug?.length ? slug.join('/') : '/'
-	const { _type, _id } = await client.fetch(
+
+	const data = await client.fetch<CmsPage>(
 		'*[slug.current == $slug]{_type, _id}[0]',
 		{
 			slug: parsedSlug,
@@ -35,10 +37,10 @@ export const getSinglePage: GetSinglePage = async (slug, preview) => {
 	)
 
 	const page = await client.fetch(
-		`*[_id == $id && _type == $type]{ ${getPageQuery(_type)}}[0]`,
+		`*[_id == $id && _type == $type]{ ${getPageQuery(data._type)}}[0]`,
 		{
-			type: _type,
-			id: _id,
+			type: data._type,
+			id: data._id,
 		},
 	)
 
@@ -49,4 +51,10 @@ export const getAllPages: GetAllPages = async () => {
 	const posts = await client.fetch<CmsPage[]>(allPages)
 
 	return posts.map(page => page.slug.current)
+}
+
+export const getNavigation = async () => {
+	const nav = await client.fetch(navigation)
+
+	return {}
 }

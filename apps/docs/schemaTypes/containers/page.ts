@@ -1,4 +1,4 @@
-import pageBase from '../nodes/compositions/page-base'
+import pageBase from '../../nodes/compositions/page-base'
 
 export default {
   name: 'page',

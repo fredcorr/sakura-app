@@ -1,6 +1,10 @@
-import siteSettings from './site-settings'
-import homepage from './homepage'
-import product from './prodcuts'
-import page from './page'
+// CONTAINERS
+import siteSettings from './containers/site-settings'
+import homepage from './containers/homepage'
+import product from './containers/prodcuts'
+import page from './containers/page'
 
-export const schemaTypes = [siteSettings, homepage, page, product]
+// GLOBAL
+import navigation from './global/navigation'
+
+export const schemaTypes = [siteSettings, homepage, page, product, navigation]
