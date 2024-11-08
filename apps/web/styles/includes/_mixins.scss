@@ -129,11 +129,11 @@
 	row-gap: $grid-gutter-sm;
 	align-self: center;
 	display: grid;
-	padding: $spacing-x10 $grid-padding-sm $spacing-x17;
+	padding: $spacing-x10 $grid-padding-sm $spacing-x10;
 
 	@include media-breakpoint-up(lg) {
 		column-gap: $grid-gutter-lg;
-		padding: $spacing-x20 $grid-padding-lg $spacing-x27;
+		padding: $spacing-x20 $grid-padding-lg $spacing-x20;
 	}
 }
 

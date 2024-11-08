@@ -1,0 +1,55 @@
+@import '../../../styles/includes';
+
+.header {
+	background-color: $white;
+	align-self: center;
+	max-width: 1440px;
+	width: 100%;
+}
+
+.nav {
+	padding: $spacing-x4 $grid-padding-sm $spacing-x4;
+	grid-template-columns: repeat(12, [col-start] 1fr);
+	column-gap: $grid-gutter-sm;
+	row-gap: $grid-gutter-sm;
+	align-self: center;
+	display: grid;
+
+	@include media-breakpoint-up(lg) {
+		padding: $spacing-x8 $grid-padding-lg $spacing-x8;
+		column-gap: $grid-gutter-lg;
+	}
+}
+
+.logo {
+	max-width: rem(395px);
+	grid-column: 4 / -4;
+	justify-self: center;
+	height: auto;
+	width: 100%;
+}
+
+.leftNav,
+.rightNav {
+	@include flex();
+}
+
+.leftNav {
+	align-items: flex-start;
+	grid-column: 2 / 4;
+}
+
+.rightNav {
+	align-items: flex-end;
+	grid-column: -4 / -2;
+}
+
+.navLink {
+	@include font-size($body-lg);
+	text-decoration: none;
+	color: $dark-blue;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
