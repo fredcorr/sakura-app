@@ -1,4 +1,3 @@
-import {validation} from 'sanity'
 import {Rule} from '@sanity/types'
 
 export default {

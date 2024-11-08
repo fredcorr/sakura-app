@@ -8,5 +8,13 @@ export default {
   title: 'Homepage',
   type: 'document',
   fieldsets: [{...seoSettings}, {...pageBaseFieldSets}],
-  fields: [...pageBase, ...pageSeo],
+  fields: [
+    ...pageBase,
+    {
+      title: 'Content',
+      name: 'page_components',
+      type: 'page_components',
+    },
+    ...pageSeo,
+  ],
 }

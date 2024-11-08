@@ -1,11 +1,6 @@
 import { Homepage as HomepageType } from '_types/cms/pages/homepage'
-import React from 'react'
+import renderComponent from '_hoc/RenderComponent/RenderComponent'
 
-export const Homepage = ({ page_title }: HomepageType) => {
-	return (
-		<>
-			<h1>{page_title}</h1>
-			<p>This is a paragraph test</p>
-		</>
-	)
+export const Homepage = ({ page_components }: HomepageType) => {
+	return page_components.map(comp => renderComponent({ component: comp }))
 }

@@ -1,3 +1,4 @@
+import { HomepageHero } from './components/homepage-hero'
 import { NavigationType } from './global/navigation'
 import { SiteSettingsType } from './global/site-settings'
 import { Homepage } from './pages/homepage'
@@ -14,6 +15,12 @@ export enum GlobalItemTypeName {
 	NAVIGATION = 'navigation',
 	SITE_SETTINGS = 'site_settings',
 }
+
+export enum ComponentsTypeName {
+	HOMEPAGE_HERO = 'homepage_hero',
+}
+
+export type Components = HomepageHero
 
 export type Slug = {
 	current: string
