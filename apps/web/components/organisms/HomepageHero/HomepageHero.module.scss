@@ -1,0 +1,53 @@
+@import '../../../styles/includes';
+
+.HomepageHero {
+	position: relative;
+	height: auto;
+
+	&::after {
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+		@include pseudo(100%, 100%);
+		z-index: $zindex-bottom;
+	}
+}
+
+.HomepageHeroInner {
+	padding-bottom: $spacing-x13;
+	z-index: $zindex-middle;
+	min-height: rem(620px);
+	margin: 0 auto;
+}
+
+.HomepageHeroImage {
+	object-position: center center;
+	z-index: $zindex-base;
+	position: absolute;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.HomepageHeroNav {
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: $spacing-x10;
+	align-self: flex-end;
+	grid-column: 2 / -2;
+	display: grid;
+}
+
+.HomepageHeroSlide {
+	color: $white;
+	width: 100%;
+}
+
+.slideTitle {
+	@include font-size($heading-h6, $font-family: $heading-font-family);
+	margin: 0 0 $spacing-x2 0;
+}
+
+.slideDescription {
+	@include font-size($body-md);
+	margin: 0 0 $spacing-x2 0;
+}

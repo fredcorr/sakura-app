@@ -16,6 +16,7 @@
 .componentLayoutInner {
 	@include container-max-width;
 	@include site-grid;
+	position: relative;
 	margin: auto;
 	width: 100%;
 }

@@ -1,4 +1,4 @@
-import { Components, ComponentsTypeName, PageTypeName } from '_types/cms/base'
+import { Components, ComponentsTypeName } from '_types/cms/base'
 import HomepageHero from '_organisms/HomepageHero/HomepageHero'
 
 export interface RenderContainerProps {
@@ -8,7 +8,7 @@ export interface RenderContainerProps {
 const renderComponent = ({ component }: RenderContainerProps) => {
 	switch (component._type) {
 		case ComponentsTypeName.HOMEPAGE_HERO:
-			return <HomepageHero />
+			return <HomepageHero {...component} />
 		default:
 			return null
 	}

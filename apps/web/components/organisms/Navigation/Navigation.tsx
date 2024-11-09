@@ -1,11 +1,11 @@
-import { Image as ImageType } from '_types/cms/base'
 import { NavigationType } from '_types/cms/global/navigation'
 import styles from './Navigation.module.scss'
-import Image from 'next/image'
+import { Image } from '_types/cms/base'
+import Media from '_atoms/Media/Media'
 import Link from 'next/link'
 
 export interface NavgationProps extends NavigationType {
-	logo: ImageType
+	logo: Image
 }
 
 const Navigation = ({ navigation_links, logo }: NavgationProps) => {
@@ -23,14 +23,7 @@ const Navigation = ({ navigation_links, logo }: NavgationProps) => {
 							</Link>
 						))}
 				</div>
-				<Image
-					height={logo.metadata.dimensions.height}
-					width={logo.metadata.dimensions.width}
-					alt={logo.alt || 'Sakura Living'}
-					blurDataURL={logo.metadata.lqip}
-					className={styles.logo}
-					src={logo.url}
-				/>
+				<Media {...logo} className={styles.logo} />
 				<div className={styles.rightNav}>
 					{navigation_links
 						.slice(navLinksHalf)
